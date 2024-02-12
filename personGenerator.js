@@ -111,7 +111,8 @@ const personGenerator = {
     GENDER_FEMALE: 'Женщина, ',
 
     randomGender: function () {
-        return Math.floor(Math.random()*2) == 1 ? this.GENDER_MALE : this.GENDER_FEMALE; // Генерация пола
+        //return Math.floor(Math.random()*2) == 1 ? this.GENDER_MALE : this.GENDER_FEMALE; // Генерация пола
+        return this.randomIntNumber() == 1 ? this.GENDER_MALE : this.GENDER_FEMALE;
     },
 
     randomIntNumber: (min = 0, max = 1) => Math.floor(Math.random() * (max - min + 1) + min), // Метод отвечающий за случайную генерацию данных
