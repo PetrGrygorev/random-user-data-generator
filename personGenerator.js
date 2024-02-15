@@ -6,7 +6,7 @@ const mon = Math.floor(Math.random() * 3); // Для генерации случ
 
 const personGenerator = {
     surnameJson: `{
-        "count": 15,
+        "count": 17,
         "list": {
             "id_1": "Иванов",
             "id_2": "Смирнов",
@@ -44,7 +44,7 @@ const personGenerator = {
     }`,
 
     firstNameFemaleJson: `{
-        "count": 10,
+        "count": 11,
         "list": {
             "id_1": "Мария",
             "id_2": "Анна",
@@ -60,7 +60,7 @@ const personGenerator = {
     }`,
 
     professionMaleJson: `{
-        "count": 10,
+        "count": 11,
         "list": {
             "id_1": "Сталевар",
             "id_2": "Шахтёр",
@@ -76,7 +76,7 @@ const personGenerator = {
     }`,
 
     professionFemaleJson: `{
-        "count": 10,
+        "count": 11,
         "list": {
             "id_1": "Маникенщица",
             "id_2": "Учительница",
