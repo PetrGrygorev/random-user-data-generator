@@ -59,22 +59,6 @@ const personGenerator = {
         }
     }`,
 
-    patronymicJson: `{
-        "count": 10,
-        "list": {
-            "id_1": "Владимиров",
-            "id_2": "Алексеев",
-            "id_3": "Сергеев",
-            "id_4": "Петров",
-            "id_5": "Андреев",
-            "id_6": "Михайлов",
-            "id_7": "Иванов",
-            "id_8": "Александров",
-            "id_9": "Анатольев",
-            "id_10": "Семёнов"
-        }
-    }`,
-
     professionMaleJson: `{
         "count": 10,
         "list": {
@@ -131,13 +115,63 @@ const personGenerator = {
         }
     },
 
-    randomPatronymic: function() { // Функция генерации мужского и женского Отчества
-        if (this.person.gender == 'Мужчина, ') { // СНОСКА...
-            return this.randomValue(this.patronymicJson) + "ич";
+    randomPatronymic: function () { // Функция генерации мужского и женского Отчества
+        let name = this.randomValue(this.firstNameMaleJson);
+        if (this.person.gender === 'Мужчина, ') { // СНОСКА...
+            if (name == 'Дмитрий') {
+                return name.replace('ий', 'иевич');
+            } else if (name === 'Никита') {
+                return name.replace('та', 'тич');
+            } else if (name === "Михаил") {
+                return name.replace('ил', 'йлович');
+            } else if (name === 'Андрей') {
+                return name.replace('й', 'евич');
+            } else {
+                return name + 'ович';
+            }
         } else {
-            return this.randomValue(this.patronymicJson) + "на";
+            if (name === 'Дмитрий') {
+                return name.replace('ий', 'иевна');
+            } else if (name === 'Никита') {
+                return name.replace('та', 'тична');
+            } else if (name === "Михаил") {
+                return name.replace("ил", "йловна");
+            } else if (name === 'Андрей') {
+                return name.replace('й', 'евна');
+            } else {
+                return name + 'овна';
+            }
         }
     },
+
+    /*randomPatronymic: function () { // Функция генерации мужского и женского Отчества
+        let name = this.randomValue(this.firstNameMaleJson); // Запасной Вариант
+        if (this.person.gender === 'Мужчина, ') { // СНОСКА...
+            if (name === 'Дмитрий') {
+                return 'Дмитриевич';
+            } else if (name === 'Никита') {
+                return 'Никитич';
+            } else if (name === 'Михаил') {
+                return 'Михайлович';
+            } else if (name === 'Андрей') {
+                return 'Андреевич';
+            } else {
+                return name + 'ович';
+            }
+        } else {
+            if (name === 'Дмитрий') {
+                return name = 'Дмитриевна';
+            } else if (name === 'Никита') {
+                return 'Никитична';
+            } else if (name === 'Михаил') {
+                return 'Михайловна';
+            } else if (name === 'Андрей') {
+                return 'Андреевна';
+            } else {
+                return name + 'овна';
+            }
+        }
+    }, */
 
     randomSurname: function() { // Функция генерации мужской и женской Фамилии
         if (this.person.gender == 'Мужчина, ') { // СНОСКА...
